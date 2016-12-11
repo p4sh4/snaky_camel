@@ -1,5 +1,5 @@
 require "snaky_camel/version"
 
 module SnakyCamel
-  # Your code goes here...
+  require "snaky_camel/middleware"
 end

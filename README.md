@@ -1,39 +1,35 @@
 # SnakyCamel
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/snaky_camel`. To experiment with that code, run `bin/console` for an interactive prompt.
+SnakyCamel is Rack middleware for Rails that automatically converts request parameter keys to snake_case and response keys to camelCase. 
 
-TODO: Delete this and the text above, and describe your gem
+This is useful if you Rails app is being used as an API for a JavaScript frontend. In Ruby and Rails, the widely adopted naming convention is to use `snake_case` for variables, keys etc. Popular JavaScript style guides (such as the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)) tend to recommend camelCase. This gem allows you to use snake_case in all Ruby/Rails code and camelCase in JavaScript code without having to worry about converting the case of parameter names or having non-conventional names.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1. Add this line to your application's Gemfile and execute `bundle install`:
 
 ```ruby
 gem 'snaky_camel'
 ```
 
-And then execute:
+2. Add this line **as the last config** to `config/application.rb`:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install snaky_camel
+```ruby
+config.middleware.use "SnakyCamel::Middleware"
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Conversion is automatic. All parameter keys in RESTful requests to your Rails application are converted to snake_case. All JSON response keys from your Rails application are converted to camelCase. 
 
-## Development
+Example: 
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+- Your application receives a request to `yourapp.com/search?searchQuery=cobra`. In the `params` hash in your Rails controller, the param key name will be `search_query`.
+- You render JSON with your controller with this code: `render json: { search_results: ['dromedary'] }, status: :ok`. The actual response is converted to `{ searchResults: ['dromedary'] }`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/snaky_camel.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/p4sh4/snaky_camel.
 
 ## License
 
