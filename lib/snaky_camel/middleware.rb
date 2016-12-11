@@ -24,9 +24,9 @@ module SnakyCamel
               raise Exception::BadResponseFormat.new(message)
             end
             if new_response.is_a?(Array)
-              new_response.map!{ |h| h.deep_transform_keys! { |k| k.camelize(:lower) } }
+              new_response.map!{ |h| h.deep_transform_keys!{ |k| k.camelize(:lower) } }
             else
-              new_response.deep_transform_keys! { |k| k.camelize(:lower) }
+              new_response.deep_transform_keys!{ |k| k.camelize(:lower) }
             end
             res.replace(new_response.to_json)
           end

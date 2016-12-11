@@ -1,5 +1,7 @@
 # SnakyCamel
 
+[![Build Status](https://travis-ci.org/p4sh4/snaky_camel.svg?branch=master)](https://travis-ci.org/p4sh4/snaky_camel)
+
 SnakyCamel is Rack middleware for Rails that automatically converts request parameter keys to snake_case and response keys to camelCase. 
 
 This is useful if you Rails app is being used as an API for a JavaScript frontend. In Ruby and Rails, the widely adopted naming convention is to use `snake_case` for variables, keys etc. Popular JavaScript style guides (such as the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)) tend to recommend camelCase. This gem allows you to use snake_case in all Ruby/Rails code and camelCase in JavaScript code without having to worry about converting the case of parameter names or having non-conventional names.
