@@ -1,6 +1,7 @@
 # SnakyCamel
 
 [![Build Status](https://travis-ci.org/p4sh4/snaky_camel.svg?branch=master)](https://travis-ci.org/p4sh4/snaky_camel)
+[![Code Climate](https://codeclimate.com/github/p4sh4/snaky_camel/badges/gpa.svg)](https://codeclimate.com/github/p4sh4/snaky_camel)
 
 SnakyCamel is Rack middleware for Rails that automatically converts request parameter keys to snake_case and response keys to camelCase. 
 
