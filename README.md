@@ -18,7 +18,7 @@ gem 'snaky_camel'
 2. Add this line **as the last config** to `config/application.rb`:
 
 ```ruby
-config.middleware.use "SnakyCamel::Middleware"
+config.middleware.use SnakyCamel::Middleware
 ```
 
 ## Usage
